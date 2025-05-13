@@ -1,8 +1,10 @@
 package com.hackaton1.resu.event;
 
 import com.hackaton1.resu.model.Order;
+import com.hackaton1.resu.model.OrderItem;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
+import java.util.List;
 
 /**
  * Event that is published when a new order is created.
@@ -20,7 +22,7 @@ public class OrderCreatedEvent extends ApplicationEvent {
         super(source);
         this.order = order;
     }
-    
+
     /**
      * Get the ID of the order.
      * @return the order ID
@@ -35,5 +37,8 @@ public class OrderCreatedEvent extends ApplicationEvent {
      */
     public String getCustomerEmail() {
         return order.getCustomerEmail();
+    }
+
+    public List<OrderItem> getItems() { return order.getItems();
     }
 }
